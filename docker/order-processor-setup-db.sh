@@ -12,7 +12,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
         PRIMARY KEY (id)
     );
 
-    CREATE TABLE public."order_record" (
+    CREATE TABLE public."ecommerce_order_record" (
         id serial NOT NULL,
         order_id varchar NOT NULL,
         status varchar NOT NULL,
