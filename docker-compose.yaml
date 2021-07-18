@@ -73,4 +73,24 @@ services:
     ports:
       - "5434:5432"
 
+  stock-db:
+    image: postgres:13.3
+    container_name: stock-db
+    volumes:
+      - ./docker/stock-setup-db.sh:/docker-entrypoint-initdb.d/setup-db.sh
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5435:5432"
+  
+  logistics-db:
+    image: postgres:13.3
+    container_name: logistics-db
+    volumes:
+      - ./docker/logistics-setup-db.sh:/docker-entrypoint-initdb.d/setup-db.sh
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5436:5432"    
+
       
