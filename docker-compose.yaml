@@ -92,5 +92,15 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - "5436:5432"    
-
+  
+  product-viewer-db:
+    image: postgres:13.3
+    container_name: product-viewer-db
+    volumes:
+      - ./docker/product-viewer-setup-db.sh:/docker-entrypoint-initdb.d/setup-db.sh
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5437:5432"    
+        
       
